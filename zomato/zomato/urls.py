@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from zomato import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('restaurants/', views.restaurants, name='restaurants'),
+    path('restaurant/<int:id>',views.seeRestaurant, name='restaurant'),
 ]
