@@ -18,6 +18,6 @@ from django.urls import path
 from zomato import views
 
 urlpatterns = [
-    path('restaurants/', views.restaurants, name='restaurants'),
+    path('restaurants/', views.index, name='restaurants'),
     path('restaurant/<int:id>',views.seeRestaurant, name='restaurant'),
 ]
