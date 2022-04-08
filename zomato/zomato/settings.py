@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
 import os
 from pathlib import Path
 from re import template
@@ -52,7 +51,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'zomato.urls'
-
 
 TEMPLATES = [
     {
@@ -114,6 +112,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/

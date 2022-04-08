@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="10000">
-            <img src="..." class="d-block w-100" alt="...">
+            <img src={{restaurant.getPhoto}} class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h5>{{restaurant.getName}}</h5>
               <p>{{restaurant.getDescription}}</p>
@@ -34,14 +35,22 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-    <div>
-        <h1>{{restaurant.getName}}</h1>
-            <p>{{restaurant.getDescription}}</p>
-            <p>{{restaurant.getAdress}}</p>
-            <p><img src={{restaurant.getPhoto}}></p>
+      {%for i in restaurant.comments %}
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Comentário {{i.index}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{i.getComment}}</h6>
         </div>
+      </div>
 
-    
-    
+      {%endfor%}
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{restaurant.getName}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{restaurant.getOpeningHours}}</h6>
+          <p class="card-text">{{restaurant.getDescription}}</p>
+          <p  class="card-text">{{restaurant.getAdress}}</p>
+        </div>
+      </div>
 </body>
 </html>
